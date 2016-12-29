@@ -3,8 +3,13 @@ import React from "react"
 import classes from "./style.scss"
 
 const phrases = [
-  "hello world",
-  "this is dogfort"
+  "frontend",
+  "javascript",
+  "C++",
+  "hardware programming",
+  "game development",
+  "react",
+  "CSS"
 ]
 
 export default class Typewriter extends React.Component {
@@ -16,7 +21,7 @@ export default class Typewriter extends React.Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.update(), 100)
+    this.interval = setInterval(() => this.update(), 200)
   }
 
   componentWillUnmount() {
@@ -50,6 +55,7 @@ export default class Typewriter extends React.Component {
     return (
       <div className={classes.typewriter}>
         {this.getPhrase().substr(0, this.state.character)}
+        <span className={classes.cursor} />
       </div>
     )
   }
