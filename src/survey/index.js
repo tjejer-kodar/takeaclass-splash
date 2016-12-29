@@ -1,5 +1,7 @@
 import React from "react"
 
+import Typewriter from "./typewriter"
+
 import classes from "./style.scss"
 
 const Intro = () =>
@@ -20,6 +22,7 @@ export default class Survey extends React.Component {
       <div className={classes.survey}>
         <Intro />
         <Question />
+        <Typewriter />
       </div>
     )
   }
