@@ -16,7 +16,7 @@ export default class Typewriter extends React.Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.update(), 200)
+    this.interval = setInterval(() => this.update(), 100)
   }
 
   componentWillUnmount() {
@@ -28,16 +28,22 @@ export default class Typewriter extends React.Component {
   }
 
   update = () => {
-    let { character, direction } = this.state
+    let { character, direction, phrase } = this.state
 
     if (character > this.getPhrase().length || character === this.getPhrase().length) {
       direction = "backwards"
-    } else if (character === 0) {
+    } else if (character === 0 && direction === "backwards") {
       direction = "forwards"
+
+      if (phrase + 1 < phrases.length) {
+        phrase += 1
+      } else {
+        phrase = 0
+      }
     }
 
     character = direction === "forwards" ? character + 1 : character - 1
-    this.setState({ character, direction })
+    this.setState({ character, direction, phrase })
   }
 
   render() {
