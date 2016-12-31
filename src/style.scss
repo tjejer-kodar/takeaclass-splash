@@ -1,8 +1,2 @@
-@import "style/reset";
-
-body {
-  line-height: 1;
-  background: #6265F8;
-  font-family: "brandon-grotesque", "sans-serif";
-  color: #fff;
-}
+@import "core-style/reset";
+@import "core-style/body";

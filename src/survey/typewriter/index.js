@@ -1,4 +1,5 @@
 import React from "react"
+import classNames from "classnames"
 
 import classes from "./style.scss"
 
@@ -53,10 +54,14 @@ export default class Typewriter extends React.Component {
 
   render() {
     return (
-      <div className={classes.typewriter}>
-        {this.getPhrase().substr(0, this.state.character)}
-        <span className={classes.cursor} />
-      </div>
+      <button
+        onClick={this.props.onClick}
+        className={classNames(this.props.className, classes.typewriter)}>
+        <span className={classes.inner}>
+          {this.getPhrase().substr(0, this.state.character)}
+          <span className={classes.cursor} />
+        </span>
+      </button>
     )
   }
 
