@@ -16,15 +16,15 @@ export default class Form extends React.Component {
     console.log("Form is valid")
   }
 
-  handleTypewrierClick = () => {
-    this.setState({ showTypewriter: false }, () => {
-      // set focus on input
-    })
+  handleLabelClick = () => {
+    this.setState({ showTypewriter: false })
   }
 
   handleInputBlur = () => {
     const model = this.form.getModel()
-    debugger
+    if (model.technology === "") {
+      this.setState({ showTypewriter: true })
+    }
   }
 
   render() {
@@ -33,9 +33,17 @@ export default class Form extends React.Component {
         ref={form => { this.form = form }}
         onValid={this.handleValidForm}
         className={classes.form}>
-        {this.state.showTypewriter &&
-          <Typewriter className={classes.typewriter} onClick={this.handleTypewrierClick} />}
-        <Input name="technology" value="" onBlur={this.handleInputBlur} />
+
+        <label onClick={this.handleLabelClick}>
+          {this.state.showTypewriter &&
+            <Typewriter className={classes.typewriter} />}
+
+          <Input
+            innerRef={input => { this.input = input }}
+            name="technology"
+            value=""
+            onBlur={this.handleInputBlur} />
+        </label>
       </Formsy.Form>
     )
   }

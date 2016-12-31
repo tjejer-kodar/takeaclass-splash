@@ -9,13 +9,18 @@
   color: #fff;
 }
 
+.inner {
+  position: absolute;
+  top: 0;
+}
+
 .cursor {
   display: inline-block;
-  width: 4px;
+  width: 1px;
   background: #5EFCDB;
-  height: 80px;
+  height: 120px;
   position: relative;
-  top: 14px;
+  top: 25px;
   margin-left: 8px;
   animation: blink 0.5s infinite;
 }
