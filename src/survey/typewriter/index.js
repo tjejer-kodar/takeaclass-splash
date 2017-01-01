@@ -1,17 +1,8 @@
 import React from "react"
 import classNames from "classnames"
 
+import Phrase from "./phrase"
 import classes from "./style.scss"
-
-const phrases = [
-  "frontend",
-  "javascript",
-  "C++",
-  "hardware programming",
-  "game development",
-  "react",
-  "CSS"
-]
 
 export default class Typewriter extends React.Component {
 
@@ -29,19 +20,21 @@ export default class Typewriter extends React.Component {
     clearInterval(this.interval)
   }
 
-  getPhrase() {
-    return phrases[this.state.phrase]
+  phrase = new Phrase()
+
+  currentPhrase() {
+    return this.phrase.fetch(this.state.phrase)
   }
 
   update = () => {
     let { character, direction, phrase } = this.state
 
-    if (character > this.getPhrase().length || character === this.getPhrase().length) {
+    if (character > this.currentPhrase().length || character === this.currentPhrase().length) {
       direction = "backwards"
     } else if (character === 0 && direction === "backwards") {
       direction = "forwards"
 
-      if (phrase + 1 < phrases.length) {
+      if (phrase + 1 < this.phrase.all.length) {
         phrase += 1
       } else {
         phrase = 0
@@ -58,7 +51,7 @@ export default class Typewriter extends React.Component {
         onClick={this.props.onClick}
         className={classNames(this.props.className, classes.typewriter)}>
         <span className={classes.inner}>
-          {this.getPhrase().substr(0, this.state.character)}
+          {this.currentPhrase().substr(0, this.state.character)}
           <span className={classes.cursor} />
         </span>
       </button>
