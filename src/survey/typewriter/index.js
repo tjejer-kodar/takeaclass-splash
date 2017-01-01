@@ -21,27 +21,18 @@ export default class Typewriter extends React.Component {
   }
 
   currentPhrase() {
-    // return this.phrase.fetch(this.state.phraseIndex)
     return Phrase.all[this.state.phraseIndex]
   }
 
   update = () => {
-    let { characterIndex, direction, phraseIndex } = this.state
+    const { characterIndex, direction, phraseIndex } = this.state
+    const phrase = new Phrase(phraseIndex, characterIndex, direction)
 
-    if (characterIndex > this.currentPhrase().length || characterIndex === this.currentPhrase().length) {
-      direction = "backwards"
-    } else if (characterIndex === 0 && direction === "backwards") {
-      direction = "forwards"
-
-      if (phraseIndex + 1 < this.phrase.all.length) {
-        phraseIndex += 1
-      } else {
-        phraseIndex = 0
-      }
-    }
-
-    characterIndex = direction === "forwards" ? characterIndex + 1 : characterIndex - 1
-    this.setState({ characterIndex, direction, phraseIndex })
+    this.setState({
+      characterIndex: phrase.characterIndex,
+      direction: phrase.direction,
+      phraseIndex: phrase.phraseIndex
+    })
   }
 
   render() {
