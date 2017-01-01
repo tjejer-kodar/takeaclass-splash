@@ -13,15 +13,17 @@ export default class Typewriter extends React.Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.update(), 200)
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval)
+    this.scheduleUpdate()
   }
 
   currentPhrase() {
     return Phrase.all[this.state.phraseIndex]
+  }
+
+  scheduleUpdate = phrase => {
+    window.clearTimeout(this.timeout)
+    const delay = phrase ? phrase.nextDisplayDuration() : 500
+    this.timeout = setTimeout(() => this.update(), delay)
   }
 
   update = () => {
@@ -32,7 +34,7 @@ export default class Typewriter extends React.Component {
       characterIndex: phrase.characterIndex,
       direction: phrase.direction,
       phraseIndex: phrase.phraseIndex
-    })
+    }, () => { this.scheduleUpdate(phrase) })
   }
 
   render() {

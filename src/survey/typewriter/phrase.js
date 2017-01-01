@@ -33,6 +33,22 @@ export default class Phrase {
       : this.characterIndex - 1
   }
 
+  nextDisplayDuration() {
+    if (this.direction === "backwards") {
+      return 100 // Delete fast
+    } else if (this.characterIndex === this.currentPhrase.length) {
+      return 500 // Pause at the end of a phrase
+    } else {
+      const character = this.currentPhrase.substr(this.characterIndex, 1)
+      if (character === " ") {
+        return 100 // Make spaces fast
+      } else {
+        // otherwise, random between 100-250ms
+        return Math.floor(Math.random() * 150) + 100
+      }
+    }
+  }
+
 }
 
 Phrase.all = [
