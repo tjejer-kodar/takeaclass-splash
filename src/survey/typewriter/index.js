@@ -7,8 +7,8 @@ import classes from "./style.scss"
 export default class Typewriter extends React.Component {
 
   state = {
-    phrase: 0,
-    character: 0,
+    phraseIndex: 0,
+    characterIndex: 0,
     direction: "forwards"
   }
 
@@ -23,26 +23,26 @@ export default class Typewriter extends React.Component {
   phrase = new Phrase()
 
   currentPhrase() {
-    return this.phrase.fetch(this.state.phrase)
+    return this.phrase.fetch(this.state.phraseIndex)
   }
 
   update = () => {
-    let { character, direction, phrase } = this.state
+    let { characterIndex, direction, phraseIndex } = this.state
 
-    if (character > this.currentPhrase().length || character === this.currentPhrase().length) {
+    if (characterIndex > this.currentPhrase().length || characterIndex === this.currentPhrase().length) {
       direction = "backwards"
-    } else if (character === 0 && direction === "backwards") {
+    } else if (characterIndex === 0 && direction === "backwards") {
       direction = "forwards"
 
-      if (phrase + 1 < this.phrase.all.length) {
-        phrase += 1
+      if (phraseIndex + 1 < this.phrase.all.length) {
+        phraseIndex += 1
       } else {
-        phrase = 0
+        phraseIndex = 0
       }
     }
 
-    character = direction === "forwards" ? character + 1 : character - 1
-    this.setState({ character, direction, phrase })
+    characterIndex = direction === "forwards" ? characterIndex + 1 : characterIndex - 1
+    this.setState({ characterIndex, direction, phraseIndex })
   }
 
   render() {
@@ -51,7 +51,7 @@ export default class Typewriter extends React.Component {
         onClick={this.props.onClick}
         className={classNames(this.props.className, classes.typewriter)}>
         <span className={classes.inner}>
-          {this.currentPhrase().substr(0, this.state.character)}
+          {this.currentPhrase().substr(0, this.state.characterIndex)}
           <span className={classes.cursor} />
         </span>
       </button>

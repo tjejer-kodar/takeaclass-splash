@@ -12,4 +12,6 @@ export default class Phrase {
   fetch(index) {
     return this.all[index]
   }
+
+  // calculateNext()
 }
