@@ -20,10 +20,9 @@ export default class Typewriter extends React.Component {
     clearInterval(this.interval)
   }
 
-  phrase = new Phrase()
-
   currentPhrase() {
-    return this.phrase.fetch(this.state.phraseIndex)
+    // return this.phrase.fetch(this.state.phraseIndex)
+    return Phrase.all[this.state.phraseIndex]
   }
 
   update = () => {
