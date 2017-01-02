@@ -1,5 +1,5 @@
 import React from "react"
-import Formsy from "formsy-react"
+import { Form } from "formsy-react"
 import Api from "api"
 
 import Typewriter from "../typewriter"
@@ -7,7 +7,7 @@ import Input from "../input"
 
 import classes from "./style.scss"
 
-export default class Form extends React.Component {
+export default class SurveyForm extends React.Component {
 
   state = {
     showTypewriter: true
@@ -16,7 +16,7 @@ export default class Form extends React.Component {
   handleValidSubmit = model => {
     const api = new Api()
     api.apiPost("http://localhost:3000/surveys", { message: model.technology })
-      .then(response => { console.log("response from server:", response) })
+      .then(response => { this.props.onComplete(response) })
       .catch(response => console.log("Fail!", response))
   }
 
@@ -33,7 +33,7 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <Formsy.Form
+      <Form
         ref={form => { this.form = form }}
         onValidSubmit={this.handleValidSubmit}
         className={classes.form}>
@@ -50,7 +50,7 @@ export default class Form extends React.Component {
 
           <button>Submit</button>
         </label>
-      </Formsy.Form>
+      </Form>
     )
   }
 

@@ -21,7 +21,7 @@ export default class Survey extends React.Component {
       <div className={classes.survey}>
         <Intro />
         <Question />
-        <Form />
+        <Form onComplete={this.props.onComplete} />
       </div>
     )
   }

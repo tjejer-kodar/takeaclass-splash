@@ -2,8 +2,8 @@ import "whatwg-fetch"
 import React from "react"
 import ReactDOM from "react-dom"
 
-import Survey from "./survey"
+import App from "app"
 
 import "./style/all.scss"
 
-ReactDOM.render(<Survey />, document.getElementById("site"))
+ReactDOM.render(<App />, document.getElementById("site"))
