@@ -26,7 +26,8 @@ class Input extends React.Component {
         type="text"
         value={this.props.getValue()}
         onBlur={this.props.onBlur}
-        onChange={this.valueChanged} />
+        onChange={this.valueChanged}
+        placeholder={this.props.placeholder} />
     )
   }
 

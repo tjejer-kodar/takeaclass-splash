@@ -1,3 +1,5 @@
+@import "style/mixins";
+
 .input {
   width: 100%;
   font-size: 80px;
@@ -9,4 +11,10 @@
   color: #5EFCDB;  // Sets the caret
   text-shadow: 0px 0px 0px #FFF; // Sets the font back to white
   -webkit-text-fill-color: transparent;
+}
+
+@include placeholder {
+  color: rgba(255,255,255,0.3);
+  text-shadow: none;
+  -webkit-text-fill-color: initial;
 }
