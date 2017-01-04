@@ -1,4 +1,33 @@
 .app {
-  padding: 40px;
   text-align: left;
+
+  a {
+    color: #fff;
+  }
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stage {
+  background: #6265F8;
+  padding: 150px 40px;
+}
+
+.footer {
+  font-size: 22px;
+  line-height: 30px;
+  padding: 70px 40px;
+
+  p {
+    margin-bottom: 15px;
+  }
+}
+
+.highlight {
+  color: #5EFCDB;
+  font-style: italic;
+  margin-right: 3px;
 }
