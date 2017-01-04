@@ -1,11 +1,13 @@
 import React from "react"
-import Survey from "survey"
+import Survey from "pages/survey"
+import Confirmation from "pages/confirmation"
 
 import classes from "./style.scss"
 
 export default class App extends React.Component {
   state = {
-    stage: "survey",
+    // stage: "survey",
+    stage: "confirmation",
     lastResponse: null
   }
 
@@ -16,10 +18,14 @@ export default class App extends React.Component {
     })
   }
 
+  handleCompletedConfirmation = response => {
+    debugger
+  }
+
   renderStage() {
     switch (this.state.stage) {
       case "confirmation":
-        return <div>Confirmation</div>
+        return <Confirmation onComplete={this.handleCompletedConfirmation} />
       default:
         return <Survey onComplete={this.handleCompletedSurvey} />
     }

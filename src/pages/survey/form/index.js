@@ -1,9 +1,9 @@
 import React from "react"
 import { Form } from "formsy-react"
 import Api from "api"
+import Input from "components/input"
 
 import Typewriter from "../typewriter"
-import Input from "../input"
 
 import classes from "./style.scss"
 
