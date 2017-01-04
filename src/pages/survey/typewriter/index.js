@@ -16,6 +16,10 @@ export default class Typewriter extends React.Component {
     this.scheduleUpdate()
   }
 
+  componentWillUnmount() {
+    window.clearTimeout(this.timeout)
+  }
+
   currentPhrase() {
     return Phrase.all[this.state.phraseIndex]
   }
