@@ -2,6 +2,7 @@ import React from "react"
 import { Form } from "formsy-react"
 import Api from "api"
 import Input from "components/input"
+import Button from "components/button"
 
 import Typewriter from "../typewriter"
 
@@ -48,7 +49,7 @@ export default class SurveyForm extends React.Component {
             value=""
             onBlur={this.handleInputBlur} />
 
-          <button>Submit</button>
+          <Button text="Submit" />
         </label>
       </Form>
     )

@@ -44,7 +44,6 @@ export default class Typewriter extends React.Component {
         className={classNames(this.props.className, classes.typewriter)}>
         <span className={classes.inner}>
           {this.currentPhrase().substr(0, this.state.characterIndex)}
-          <span className={classes.cursor} />
         </span>
       </button>
     )
