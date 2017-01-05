@@ -53,10 +53,13 @@ export default class Phrase {
 
 Phrase.all = [
   "frontend",
+  "build a web page",
   "javascript",
-  "C++",
-  "hardware programming",
   "game development",
+  "CSS",
+  "make an app",
+  "hardware programming",
+  "HTML",
   "react",
-  "CSS"
+  "C++"
 ]

@@ -8,11 +8,11 @@ import classes from "./style.scss"
 
 const Confirmation = props =>
   <div className={classes.confirmation}>
-    <Intro text="Some seriously cool stuff is coming soon, but until then..." />
+    <Intro text="takeaclass.io is coming soon. It will be cool. " />
 
     <Heading
       primary="Yay!"
-      secondary="Wanna sign up for updates?" />
+      secondary="Sign up to be the first for updates" />
 
     <Form survey={props.survey} onComplete={props.onComplete} />
   </div>

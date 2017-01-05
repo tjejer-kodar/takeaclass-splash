@@ -8,11 +8,11 @@ import classes from "./style.scss"
 
 const Survey = props =>
   <div className={classes.survey}>
-    <Intro text="Some seriously cool stuff is coming soon, but until then..." />
+    <Intro text="Seriously cool stuff is coming soon, but until then..." />
 
     <Heading
       primary="Plz tell us."
-      secondary="I want to learn..." />
+      secondary="What do you want to learn?" />
     <Form onComplete={props.onComplete} />
   </div>
 
