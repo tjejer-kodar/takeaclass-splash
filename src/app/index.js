@@ -1,6 +1,7 @@
 import React from "react"
 import Survey from "pages/survey"
 import Confirmation from "pages/confirmation"
+import Done from "pages/done"
 
 import classes from "./style.scss"
 
@@ -20,8 +21,8 @@ const Footer = () =>
 
 export default class App extends React.Component {
   state = {
-    stage: "survey",
-    // stage: "confirmation",
+    // stage: "survey",
+    stage: "done",
     survey: null
   }
 
@@ -33,7 +34,10 @@ export default class App extends React.Component {
   }
 
   handleCompletedConfirmation = response => {
-    debugger
+    this.setState({
+      stage: "done",
+      survey: response.survey
+    })
   }
 
   renderStage() {
@@ -42,6 +46,8 @@ export default class App extends React.Component {
         return (<Confirmation
           survey={this.state.survey}
           onComplete={this.handleCompletedConfirmation} />)
+      case "done":
+        return <Done />
       default:
         return <Survey onComplete={this.handleCompletedSurvey} />
     }
