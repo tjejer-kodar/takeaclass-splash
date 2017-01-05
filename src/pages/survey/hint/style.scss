@@ -1,0 +1,23 @@
+.hint {
+  font-size: 28px;
+  line-height: 42px;
+  padding-top: 15px;
+  position: absolute;
+}
+
+.text {
+  margin-left: 5px;
+  color: #5EFCDB;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.textWrapper {
+  &:after {
+    content: ",";
+  }
+
+  &:last-child:after {
+    content: "";
+  }
+}

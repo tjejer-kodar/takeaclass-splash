@@ -1,9 +1,5 @@
 .app {
   text-align: left;
-
-  a {
-    color: #fff;
-  }
 }
 
 .container {
@@ -14,7 +10,7 @@
 .stage {
   background: #6265F8 url("http://i.imgur.com/HArHps2.png") repeat left top;
   background-size: 400px 400px;
-  padding: 150px 40px;
+  padding: 130px 40px 160px 40px;
 }
 
 .footer {
@@ -24,6 +20,10 @@
 
   p {
     margin-bottom: 15px;
+  }
+
+  a {
+    color: #fff;
   }
 }
 

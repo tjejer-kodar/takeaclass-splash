@@ -5,13 +5,20 @@ import Input from "components/input"
 import Button from "components/button"
 
 import Typewriter from "../typewriter"
+import Hint from "../hint"
 
 import classes from "./style.scss"
 
 export default class SurveyForm extends React.Component {
 
   state = {
-    showTypewriter: true
+    showTypewriter: true,
+    showHint: false,
+    inputValue: ""
+  }
+
+  showHint = () => {
+    this.setState({ showHint: true })
   }
 
   handleValidSubmit = model => {
@@ -23,6 +30,7 @@ export default class SurveyForm extends React.Component {
 
   handleLabelClick = () => {
     this.setState({ showTypewriter: false })
+    this.timeout = setTimeout(this.showHint, 1000)
   }
 
   handleInputBlur = () => {
@@ -30,6 +38,14 @@ export default class SurveyForm extends React.Component {
     if (model.message === "") {
       this.setState({ showTypewriter: true })
     }
+  }
+
+  handleHintClick = hint => {
+    this.setState({
+      inputValue: hint,
+      showTypewriter: false,
+      showHint: false
+    })
   }
 
   render() {
@@ -46,11 +62,13 @@ export default class SurveyForm extends React.Component {
           <Input
             innerRef={input => { this.input = input }}
             name="message"
-            value=""
+            value={this.state.inputValue}
             onBlur={this.handleInputBlur} />
-
-          <Button text="Submit" />
         </label>
+
+        <Button text="Submit" />
+
+        {this.state.showHint && <Hint onHintClick={this.handleHintClick} />}
       </Form>
     )
   }
