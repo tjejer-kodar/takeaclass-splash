@@ -1,11 +1,11 @@
 export default class Api {
 
   submitSurvey(message) {
-    return this.callApi("http://localhost:3000/surveys", { message }, "POST")
+    return this.callApi("https://checkout.tjejerkodar.se/surveys", { message }, "POST")
   }
 
   submitEmail(surveyUuid, email) {
-    const url = `http://localhost:3000/surveys/${surveyUuid}`
+    const url = `https://checkout.tjejerkodar.se/surveys/${surveyUuid}`
     return this.callApi(url, { email }, "PUT")
   }
 
