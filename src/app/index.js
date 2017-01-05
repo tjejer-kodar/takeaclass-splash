@@ -21,8 +21,8 @@ const Footer = () =>
 
 export default class App extends React.Component {
   state = {
-    // stage: "survey",
-    stage: "done",
+    stage: "survey",
+    // stage: "done",
     survey: null
   }
 
