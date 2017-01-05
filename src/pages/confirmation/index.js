@@ -14,7 +14,7 @@ const Confirmation = props =>
       primary="Yay!"
       secondary="Wanna sign up for updates?" />
 
-    <Form onComplete={props.onComplete} />
+    <Form survey={props.survey} onComplete={props.onComplete} />
   </div>
 
 export default Confirmation

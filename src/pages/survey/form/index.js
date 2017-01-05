@@ -16,7 +16,7 @@ export default class SurveyForm extends React.Component {
 
   handleValidSubmit = model => {
     const api = new Api()
-    api.apiPost("http://localhost:3000/surveys", { message: model.technology })
+    api.submitSurvey(model.message)
       .then(response => { this.props.onComplete(response) })
       .catch(response => console.log("Fail!", response))
   }
@@ -27,7 +27,7 @@ export default class SurveyForm extends React.Component {
 
   handleInputBlur = () => {
     const model = this.form.getModel()
-    if (model.technology === "") {
+    if (model.message === "") {
       this.setState({ showTypewriter: true })
     }
   }
@@ -45,7 +45,7 @@ export default class SurveyForm extends React.Component {
 
           <Input
             innerRef={input => { this.input = input }}
-            name="technology"
+            name="message"
             value=""
             onBlur={this.handleInputBlur} />
 

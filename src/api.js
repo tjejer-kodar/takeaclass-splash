@@ -1,8 +1,17 @@
 export default class Api {
 
-  apiPost(url, body) {
+  submitSurvey(message) {
+    return this.callApi("http://localhost:3000/surveys", { message }, "POST")
+  }
+
+  submitEmail(surveyUuid, email) {
+    const url = `http://localhost:3000/surveys/${surveyUuid}`
+    return this.callApi(url, { email }, "PUT")
+  }
+
+  callApi(url, body, method) {
     return fetch(url, {
-      method: "POST",
+      method,
       headers: this.defaultHeaders(),
       body: JSON.stringify(body)
     })

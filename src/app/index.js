@@ -22,13 +22,13 @@ export default class App extends React.Component {
   state = {
     stage: "survey",
     // stage: "confirmation",
-    lastResponse: null
+    survey: null
   }
 
   handleCompletedSurvey = response => {
     this.setState({
       stage: "confirmation",
-      lastResponse: response
+      survey: response.survey
     })
   }
 
@@ -39,7 +39,9 @@ export default class App extends React.Component {
   renderStage() {
     switch (this.state.stage) {
       case "confirmation":
-        return <Confirmation onComplete={this.handleCompletedConfirmation} />
+        return (<Confirmation
+          survey={this.state.survey}
+          onComplete={this.handleCompletedConfirmation} />)
       default:
         return <Survey onComplete={this.handleCompletedSurvey} />
     }
