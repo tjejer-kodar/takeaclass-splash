@@ -14,10 +14,9 @@ const Hint = props =>
   <div className={classes.hint}>
     If you're not sure, get inspired from things others wrote
     {hints.map(hint => (
-      <span className={classes.textWrapper}>
+      <span key={hint} className={classes.textWrapper}>
         <a
           className={classes.text}
-          key={hint}
           onClick={props.onHintClick.bind(this, hint)}>
           {hint}
         </a>

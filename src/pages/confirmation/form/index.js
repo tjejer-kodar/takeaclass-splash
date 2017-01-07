@@ -22,6 +22,12 @@ export default class ConfirmationForm extends React.Component {
           <Input
             name="email"
             value=""
+            validations={{
+              isEmail: true
+            }}
+            validationErrors={{
+              isEmail: "You need to enter an email address!"
+            }}
             placeholder="you@email.com" />
 
           <Button text="Submit" />
