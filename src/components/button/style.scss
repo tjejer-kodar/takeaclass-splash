@@ -1,3 +1,5 @@
+@import "style/mixins";
+
 .button {
   border: none;
   background: #5EFCDB;
@@ -11,4 +13,10 @@
   right: 20px;
   top: 25px;
   cursor: pointer;
+
+  @include small {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
 }

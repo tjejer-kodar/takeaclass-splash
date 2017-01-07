@@ -1,4 +1,10 @@
+@import "style/mixins";
+
 .intro {
   font-size: 32px;
   font-style: italic;
+
+  @include small {
+    font-size: 23px;
+  }
 }

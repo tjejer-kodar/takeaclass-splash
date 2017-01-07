@@ -9,6 +9,12 @@
     @content;
   }
   :-ms-input-placeholder {
-    @content
+    @content;
+  }
+}
+
+@mixin small {
+  @media (max-width: 600px) {
+    @content;
   }
 }

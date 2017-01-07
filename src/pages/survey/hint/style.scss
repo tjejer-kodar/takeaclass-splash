@@ -1,8 +1,14 @@
+@import "style/mixins";
+
 .hint {
   font-size: 28px;
   line-height: 42px;
   padding-top: 15px;
   position: absolute;
+
+  @include small {
+    display: none;
+  }
 }
 
 .text {

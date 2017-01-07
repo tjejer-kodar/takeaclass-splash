@@ -12,6 +12,11 @@
   color: #5EFCDB;  // Sets the caret
   text-shadow: 0px 0px 0px #FFF; // Sets the font back to white
   -webkit-text-fill-color: transparent;
+
+  @include small {
+    font-size: 45px;
+    padding: 10px 14px;
+  }
 }
 
 @include placeholder {

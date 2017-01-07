@@ -10,13 +10,12 @@ import Hint from "../hint"
 
 import classes from "./style.scss"
 
-const getHintClassnames = ({ showHint, highlightHint }) => {
-  console.log("highlightHint", highlightHint)
-  return classNames(classes.hint, {
+const getHintClassnames = ({ showHint, highlightHint }) => (
+  classNames(classes.hint, {
     [classes.visible]: showHint,
     [classes.highlight]: highlightHint
   })
-}
+)
 
 export default class SurveyForm extends React.Component {
 

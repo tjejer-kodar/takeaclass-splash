@@ -1,3 +1,5 @@
+@import "style/mixins";
+
 .typewriter {
   font-size: 60px;
   display: block;
@@ -8,13 +10,24 @@
   border: none;
   color: #fff;
   cursor: text;
+
+  @include small {
+    font-size: 45px;
+    overflow: hidden;
+    width: 100%;
+    height: 86px;
+  }
 }
 
 .inner {
   position: absolute;
-  // top: 0;
   top: 15px;
   left: 28px;
+
+  @include small {
+    top: 13px;
+    left: 14px;
+  }
 
   &:after {
     content: '';
@@ -26,6 +39,10 @@
     top: 0;
     margin-left: 8px;
     animation: blink 1s step-end infinite;
+
+    @include small {
+      height: 62px;
+    }
   }
 }
 
