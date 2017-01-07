@@ -77,7 +77,7 @@ export default class SurveyForm extends React.Component {
       showHint: true,
       highlightHint: true
     }, () => {
-      setTimeout(() => { this.setState({ highlightHint: false }) }, 200)
+      setTimeout(() => { this.setState({ highlightHint: false }) }, 500)
     })
   }
 
