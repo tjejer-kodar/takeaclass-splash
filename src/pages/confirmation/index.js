@@ -12,7 +12,7 @@ const Confirmation = props =>
 
     <Heading
       primary="Yay!"
-      secondary="Sign up to be the first for updates" />
+      secondary="Sign up to be the first for updates." />
 
     <Form survey={props.survey} onComplete={props.onComplete} />
   </div>

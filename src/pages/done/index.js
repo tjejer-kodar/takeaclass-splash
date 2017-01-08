@@ -10,7 +10,7 @@ const Done = () =>
 
     <Heading
       primary="Thanks!"
-      secondary="We can't wait to tell you more" />
+      secondary="We can't wait to tell you more." />
   </div>
 
 export default Done
