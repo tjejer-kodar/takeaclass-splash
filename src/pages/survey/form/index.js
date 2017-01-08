@@ -1,6 +1,5 @@
 import React from "react"
 import { Form } from "formsy-react"
-import classNames from "classnames"
 import Api from "api"
 import Input from "components/input"
 import Button from "components/button"
@@ -9,13 +8,6 @@ import Typewriter from "../typewriter"
 import Hint from "../hint"
 
 import classes from "./style.scss"
-
-const getHintClassnames = ({ showHint, highlightHint }) => (
-  classNames(classes.hint, {
-    [classes.visible]: showHint,
-    [classes.highlight]: highlightHint
-  })
-)
 
 export default class SurveyForm extends React.Component {
 
@@ -102,18 +94,15 @@ export default class SurveyForm extends React.Component {
             validations={{
               isPresent: true
             }}
-            validationErrors={{
-              isPresent: "Enter what youd like to learn..."
-            }}
             onBlur={this.handleInputBlur} />
         </label>
 
         <Button text="Submit" loading={this.state.loading} />
 
-        <div
-          className={getHintClassnames(this.state)}>
-          <Hint onHintClick={this.handleHintClick} />
-        </div>
+        <Hint
+          visible={this.state.showHint}
+          highlight={this.state.highlightHint}
+          onHintClick={this.handleHintClick} />
       </Form>
     )
   }

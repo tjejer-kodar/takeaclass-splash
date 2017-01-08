@@ -8,7 +8,12 @@ import classes from "./style.scss"
 
 export default class ConfirmationForm extends React.Component {
 
+  state = {
+    loading: false
+  }
+
   handleValidSubmit = model => {
+    this.setState({ loading: true })
     const api = new Api()
     api.submitEmail(this.props.survey.uuid, model.email)
       .then(response => { this.props.onComplete(response) })
@@ -23,14 +28,12 @@ export default class ConfirmationForm extends React.Component {
             name="email"
             value=""
             validations={{
-              isEmail: true
-            }}
-            validationErrors={{
-              isEmail: "You need to enter an email address!"
+              isEmail: true,
+              isPresent: true
             }}
             placeholder="you@email.com" />
 
-          <Button text="Submit" />
+          <Button text="Submit" loading={this.state.loading} />
         </Form>
       </div>
     )
