@@ -20,6 +20,7 @@ const getHintClassnames = ({ showHint, highlightHint }) => (
 export default class SurveyForm extends React.Component {
 
   state = {
+    loading: false,
     showTypewriter: true,
     showHint: false,
     highlightHint: false,
@@ -38,6 +39,8 @@ export default class SurveyForm extends React.Component {
   }
 
   handleValidSubmit = model => {
+    this.setState({ loading: true })
+
     const api = new Api()
     api.submitSurvey(model.message)
       .then(response => { this.props.onComplete(response) })
@@ -105,7 +108,7 @@ export default class SurveyForm extends React.Component {
             onBlur={this.handleInputBlur} />
         </label>
 
-        <Button text="Submit" />
+        <Button text="Submit" loading={this.state.loading} />
 
         <div
           className={getHintClassnames(this.state)}>
