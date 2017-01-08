@@ -26,6 +26,11 @@ export default class App extends React.Component {
     survey: null
   }
 
+  // When we change "page", make sure we go back to the top
+  componentWillUpdate() {
+    window.scrollTo(0, 0)
+  }
+
   handleCompletedSurvey = response => {
     this.setState({
       stage: "confirmation",
