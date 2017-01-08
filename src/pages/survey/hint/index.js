@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import Hint from "components/hint"
 
 import classes from "./style.scss"
 
@@ -11,8 +11,8 @@ const hints = [
   "APIs"
 ]
 
-const SurveyHint = props =>
-  <div>
+const SurvetHint = props =>
+  <Hint {...props}>
     If you're not sure, get inspired from things others wrote
     {hints.map(hint => (
       <span key={hint} className={classes.textWrapper}>
@@ -23,18 +23,6 @@ const SurveyHint = props =>
         </a>
       </span>
     ))}
-  </div>
+  </Hint>
 
-const getHintClassnames = props => (
-    classNames(classes.hint, {
-      [classes.visible]: props.visible,
-      [classes.highlight]: props.highlight
-    })
-  )
-
-const Hint = props =>
-  <div className={getHintClassnames(props)}>
-    <SurveyHint {...props} />
-  </div>
-
-export default Hint
+export default SurvetHint
