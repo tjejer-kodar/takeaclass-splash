@@ -20,6 +20,7 @@
     "classnames": "^2.2.5",
     "eslint": "^3.8.1",
     "formsy-react": "^0.19.0",
+    "raven-js": "^3.9.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "susy": "^2.2.12",
